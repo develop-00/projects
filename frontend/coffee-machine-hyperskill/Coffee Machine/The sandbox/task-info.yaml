@@ -1,0 +1,49 @@
+type: remote_edu
+files:
+- name: main.js
+  visible: true
+  text: |
+    // Use "input()" to input a line from the user
+    // Use "input(str)" to print some text before requesting input
+    // You will need this in the following stages
+    const input = require('sync-input')
+    console.log(`Starting to make a coffee
+    Grinding coffee beans
+    Boiling water
+    Mixing boiled water with crushed coffee beans
+    Pouring coffee into the cup
+    Pouring some milk into the cup
+    Coffee is ready!`);
+    let requiredCoffeeCups = input(`Write how many cups of coffee you will need: `);
+    console.log(`For ${requiredCoffeeCups} cups of coffee you will need:
+    ${requiredCoffeeCups * 200} ml of water
+    ${requiredCoffeeCups * 50} ml of milk
+    ${requiredCoffeeCups * 15} g of coffee beans`);
+  learner_created: false
+- name: tests.py
+  visible: false
+  text: |
+    from hstest import *
+
+
+    class CoffeeMachineTest(StageTest):
+        @dynamic_test
+        def empty_test(self):
+            p = TestedProgram()
+            p.start()
+            if p.is_finished():
+                return wrong("Your program should not terminate "
+                             "immediately after starting")
+            return correct()
+
+
+    if __name__ == '__main__':
+        CoffeeMachineTest().run_tests()
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/17041#comment
+check_profile: hyperskill_node_javascript
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Thu, 04 Aug 2022 10:11:21 UTC
+record: -1
