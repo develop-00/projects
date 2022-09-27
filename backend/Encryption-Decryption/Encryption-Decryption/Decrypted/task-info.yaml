@@ -1,0 +1,83 @@
+type: edu
+custom_name: Decrypted!
+files:
+- name: test/EncryptDecryptTest.java
+  visible: false
+  text: |
+    import org.hyperskill.hstest.stage.StageTest;
+    import org.hyperskill.hstest.testcase.SimpleTestCase;
+
+    import java.util.List;
+
+    public class EncryptDecryptTest extends StageTest {
+
+        @Override
+        public List<SimpleTestCase> generate() {
+            return List.of(
+                new SimpleTestCase(
+                    "enc\n" +
+                        "Welcome to hyperskill!\n" +
+                        "5",
+                    "\\jqhtrj%yt%m~ujwxpnqq&"),
+                new SimpleTestCase(
+                    "enc\n" +
+                        "Hello\n" +
+                        "0",
+                    "Hello"),
+                new SimpleTestCase(
+                    "enc\n" +
+                        "012345678\n" +
+                        "1",
+                    "123456789"),
+                new SimpleTestCase(
+                    "dec\n" +
+                        "\\jqhtrj%yt%m~ujwxpnqq&\n" +
+                        "5",
+                    "Welcome to hyperskill!"),
+                new SimpleTestCase(
+                    "dec\n" +
+                        "Hello\n" +
+                        "0",
+                    "Hello"),
+                new SimpleTestCase(
+                    "dec\n" +
+                        "222233334444\n" +
+                        "1",
+                    "111122223333")
+            );
+        }
+    }
+  learner_created: false
+- name: src/Main.java
+  visible: true
+  text: |
+    import java.util.Scanner;
+
+    public class Main {
+        private static final Scanner readIp = new Scanner(System.in);
+
+        public static void main(String[] args) {
+            String alphabets = "abcdefghijklmnopqrstuvwxyz";
+    //        final int first = 1;
+            final int last = 26;
+            String[] input = readIp.nextLine().toLowerCase().split("");
+            int key = readIp.nextInt();
+            StringBuilder code = new StringBuilder();
+
+            for (String ch : input) {
+                if (alphabets.contains(ch)) {
+                    code.append(alphabets.charAt((alphabets.indexOf(ch) + key) % last));
+                } else {
+                    code.append(ch);
+                }
+            }
+            System.out.println(code);
+        }
+    }
+  learner_created: true
+feedback_link: https://hyperskill.org/learn/step/5389#comment
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Tue, 27 Sep 2022 05:21:03 UTC
+record: 3
