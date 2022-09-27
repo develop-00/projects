@@ -8,10 +8,4 @@
 - 📫 How to reach me (Linkedin) https://www.linkedin.com/in/tiwari-trapti/
 
 ## Projects
-This repo contains various
-
-- frontend (HTML / CSS / JS / React JS)
-- backend (Java / Spring Boot)
-- fullstack (Spring Boot / React JS) 
-
-projects completed by me during various courses.
+This repo contains various projects completed by me during various courses.
